@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>留言板</title>
+</head>
+<body>
+    <h1>盖特曼的留言板</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- 这是和后端交互的输入框 -->
+    <form action="/message/add" method="POST">
+        这是一个发送 POST 请求的表单
+        <br>
+        <textarea name="msg_post"></textarea>
+        <br>
+        <button type="submit">发送</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- 这是和后端交互的展示板 -->
+    {#   这是 Jinja2 模板的注释    {% %}里面的是语句    {{ }}里面的是引用变量   #}
+    <!-- 注意 m 本身是一个字典，但是你可以用 . 的语法来引用 -->
+    <!-- 这是 Jinja2 模板的功能,写了一个Jinja2的for循环 -->
+    {% for m in messages %}
+        <div>{{ m.get('content') }}</div>
+    {% endfor %}
+</body>
+</html>
